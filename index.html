@@ -53,8 +53,6 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);min-h
 #register-panel.show{display:block}
 
 /* ── MAIN APP (hidden until login) ── */
-#app{display:none}
-#app.show{display:block}
 
 /* ── HEADER ── */
 header{position:sticky;top:0;z-index:200;background:rgba(250,247,242,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--bdr)}
@@ -364,8 +362,8 @@ const EMOS={Pemrograman:'💻',Matematika:'📐',Fisika:'⚛️',Kimia:'🧪',Bi
 // ════════════════════════════
 window.switchTab=t=>{
   document.querySelectorAll('.auth-tab').forEach((b,i)=>b.classList.toggle('active',i===(t==='login'?0:1)));
-  document.getElementById('login-panel').style.display=t==='login'?'':'none';
-  document.getElementById('register-panel').style.display=t==='register'?'':'none';
+  document.getElementById('login-panel').style.display=t==='login'?'block':'none';
+  document.getElementById('register-panel').style.display=t==='register'?'block':'none';
   showAuthErr('');
 };
 switchTab('login');
