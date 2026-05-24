@@ -828,7 +828,9 @@ function openReader(id) {
 
   const url = b.file_url||b._localUrl;
   if (url) {
-    body.innerHTML=`<iframe src="${url}#toolbar=1&navpanes=0" title="${b.title}"></iframe>`;
+    const viewerUrl = 'https://docs.google.com/viewer?url='
+      + encodeURIComponent(url) + '&embedded=true';
+    body.innerHTML=`<iframe src="${viewerUrl}" title="${b.title}"></iframe>`;
     dl.href=url; dl.setAttribute('download',b.title+'.pdf');
     dl.style.opacity='1'; dl.style.pointerEvents='all';
   } else {
